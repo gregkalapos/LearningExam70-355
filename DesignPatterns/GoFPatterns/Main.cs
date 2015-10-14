@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using GoFPatterns.Creational.AbstractFactory;
+using GoFPatterns.Creational.Builder;
 
 namespace GoFPatterns
 {
@@ -20,6 +21,15 @@ namespace GoFPatterns
             Console.WriteLine("Second sample: using concrete factory2"); 
             var client2 = new Client(new ConcreteFactory2());
             client2.PrintMsgs();
+
+            //Builder
+            Console.WriteLine();
+            Console.WriteLine("Builder Pattern");
+            RedCabrioBulder carBuilder = new RedCabrioBulder();
+            CarFactory cf = new CarFactory(carBuilder);
+            cf.BuildCar();
+            var car = carBuilder.GetResult();
+            car.PrintProperties();
         }
     }
 }
