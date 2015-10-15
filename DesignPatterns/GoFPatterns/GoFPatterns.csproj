@@ -61,10 +61,13 @@
     <Compile Include="Creational\Prototype\IPrototype.cs" />
     <Compile Include="Creational\Prototype\Maze.cs" />
     <Compile Include="Creational\Prototype\MazePrototypeFactory.cs" />
+    <Compile Include="Creational\Singleton\Singleton.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Structural\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

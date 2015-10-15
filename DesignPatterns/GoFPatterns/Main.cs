@@ -8,6 +8,7 @@ using GoFPatterns.Creational.AbstractFactory;
 using GoFPatterns.Creational.Builder;
 using GoFPatterns.Creational.FactoryMethod;
 using GoFPatterns.Creational.Prototype;
+using GoFPatterns.Creational.Singleton;
 
 namespace GoFPatterns
 {
@@ -45,6 +46,14 @@ namespace GoFPatterns
             var prototypeFactory = new MazePrototypeFactory(new Maze { Name = "TestMaze" }, new Door());
             prototypeFactory.MakeMaze().PrintPtopeties();
             prototypeFactory.MakeDoor().PrintProperties();
+
+            //Singleton 
+            Console.WriteLine();
+            Console.WriteLine("Singleton pattern");
+            var instance = Singleton.Instance;
+            Console.WriteLine("Instance intvalue: " + instance.IntProperty);
+            Singleton.Instance.IntProperty = 33;
+            Console.WriteLine("Instance intvalue: " + instance.IntProperty);
         }
     }
 }
