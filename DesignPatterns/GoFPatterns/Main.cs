@@ -10,6 +10,8 @@ using GoFPatterns.Creational.FactoryMethod;
 using GoFPatterns.Creational.Prototype;
 using GoFPatterns.Creational.Singleton;
 
+using GoFPatterns.Structural.Adapter;
+
 namespace GoFPatterns
 {
     class MainClass
@@ -54,6 +56,13 @@ namespace GoFPatterns
             Console.WriteLine("Instance intvalue: " + instance.IntProperty);
             Singleton.Instance.IntProperty = 33;
             Console.WriteLine("Instance intvalue: " + instance.IntProperty);
+
+            //Singleton 
+            Console.WriteLine();
+            Console.WriteLine("Adapter pattern");
+            AudioPlayer ap = new AudioPlayer();
+            ap.Play("mp3", "aaa");
+            ap.Play("mp4", "bb");
         }
     }
 }

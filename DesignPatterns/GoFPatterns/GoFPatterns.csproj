@@ -64,10 +64,13 @@
     <Compile Include="Creational\Singleton\Singleton.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Structural\Adapter\AdvancedAudioPlayer.cs" />
+    <Compile Include="Structural\Adapter\AudioPlayer.cs" />
+    <Compile Include="Structural\Adapter\IAdvancedAudioPlayer.cs" />
+    <Compile Include="Structural\Adapter\IMediaPlayer.cs" />
+    <Compile Include="Structural\Adapter\MediaAdapter.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Structural\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
