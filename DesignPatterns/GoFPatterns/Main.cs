@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 using GoFPatterns.Creational.AbstractFactory;
 using GoFPatterns.Creational.Builder;
+using GoFPatterns.Creational.FactoryMethod;
+using GoFPatterns.Creational.Prototype;
 
 namespace GoFPatterns
 {
@@ -30,6 +32,19 @@ namespace GoFPatterns
             cf.BuildCar();
             var car = carBuilder.GetResult();
             car.PrintProperties();
+
+            //Factory method
+            Console.WriteLine();
+            Console.WriteLine("Factory method pattern");
+            var factory = new ConcreteFactory();
+            factory.DoSomeThing();
+
+            //Prototype 
+            Console.WriteLine();
+            Console.WriteLine("Prototype pattern");
+            var prototypeFactory = new MazePrototypeFactory(new Maze { Name = "TestMaze" }, new Door());
+            prototypeFactory.MakeMaze().PrintPtopeties();
+            prototypeFactory.MakeDoor().PrintProperties();
         }
     }
 }

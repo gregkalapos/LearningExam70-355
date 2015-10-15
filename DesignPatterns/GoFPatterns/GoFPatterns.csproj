@@ -53,9 +53,18 @@
     <Compile Include="Creational\Builder\CarFactory.cs" />
     <Compile Include="Creational\Builder\ICarBuilder.cs" />
     <Compile Include="Creational\Builder\RedCabrioBulder.cs" />
+    <Compile Include="Creational\FactoryMethod\ConcreteFactory.cs" />
+    <Compile Include="Creational\FactoryMethod\ConcreteProduct.cs" />
+    <Compile Include="Creational\FactoryMethod\Factory.cs" />
+    <Compile Include="Creational\FactoryMethod\IProduct.cs" />
+    <Compile Include="Creational\Prototype\Door.cs" />
+    <Compile Include="Creational\Prototype\IPrototype.cs" />
+    <Compile Include="Creational\Prototype\Maze.cs" />
+    <Compile Include="Creational\Prototype\MazePrototypeFactory.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
