@@ -30,14 +30,19 @@ namespace ThreadPoolSample
         }
 
         IAsyncAction lastWorkItem;
+        ThreadPoolTimer periodicTimer;
+        int periodicCounts;
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
+            ThreadPoolTimerTextBox.Text = "ThreadPool timer scheduled";
 
             ThreadPoolTimer.CreateTimer((source) =>
             {
+                Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => {
 
-
+                    ThreadPoolTimerTextBox.Text = "ThreadPool Thread done";
+                });
 
             }, TimeSpan.FromSeconds(5));
         }
@@ -106,6 +111,42 @@ namespace ThreadPoolSample
             });
 
             lastWorkItem = m_workItem;
+        }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (periodicTimer == null)
+            {
+
+                button2.Content = "Stop per. Timer";
+
+                periodicTimer = ThreadPoolTimer.CreatePeriodicTimer((source) =>
+                {
+
+                    periodicCounts++;
+
+                    Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                    {
+                        PeriodicSampleTextBlock.Text = "Periodic timer runs: " + periodicCounts;
+                    });
+                }, TimeSpan.FromSeconds(3), (source) =>
+                {
+
+                    periodicCounts = 0;
+
+                    Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                    {
+                        button2.Content = "Start per. Timer";
+                        PeriodicSampleTextBlock.Text = "Stopped";
+                    });
+                });
+            }
+            else
+            {
+                periodicTimer.Cancel();
+                periodicTimer = null;
+            }
         }
     }
 }

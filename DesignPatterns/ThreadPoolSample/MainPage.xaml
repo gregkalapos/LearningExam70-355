@@ -11,6 +11,9 @@
         <Button x:Name="button" Content="Timer WorkItem" HorizontalAlignment="Left" Margin="414,250,0,0" VerticalAlignment="Top" Click="button_Click"/>
         <Button x:Name="button1" Content="Calculate 9999th prime" HorizontalAlignment="Left" Margin="414,152,0,0" VerticalAlignment="Top" Click="button1_Click"/>
         <TextBlock x:Name="PrimeCalculationTextblock" HorizontalAlignment="Left" Margin="226,158,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="-0.64,0.5"/>
+        <TextBlock x:Name="ThreadPoolTimerTextBox" HorizontalAlignment="Left" Margin="226,250,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <Button x:Name="button2" Content="Start Periodic Timer" HorizontalAlignment="Left" Margin="414,318,0,0" VerticalAlignment="Top" Click="button2_Click"/>
+        <TextBlock x:Name="PeriodicSampleTextBlock" HorizontalAlignment="Left" Height="20" Margin="89,318,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="260"/>
 
     </Grid>
 </Page>
