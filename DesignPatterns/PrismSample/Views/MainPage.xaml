@@ -7,10 +7,15 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="using:Prism.Windows.Mvvm"
     prism:ViewModelLocator.AutoWireViewModel="true"
-    
-    mc:Ignorable="d">
+    xmlns:disignTime="using:PrismSample.DesignTime"
+    mc:Ignorable="d"
+    >
+
+    <d:Page.DataContext>
+        <disignTime:MainPageDtViewModel/>
+    </d:Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock Text="aaa"/>
+        <TextBlock Text="{Binding MainText}"/>
     </Grid>
 </Page>

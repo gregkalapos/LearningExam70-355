@@ -1,4 +1,5 @@
-﻿using Prism.Mvvm;
+﻿using Prism.Events;
+using Prism.Mvvm;
 using Prism.Windows;
 using PrismSample.ViewModels;
 using PrismSample.Views;
@@ -38,6 +39,7 @@ namespace PrismSample
     {
 
         IDataRepository _dataRepository;
+        IEventAggregator eventaggr;
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
@@ -51,7 +53,10 @@ namespace PrismSample
 
         protected override Task OnLaunchApplicationAsync(LaunchActivatedEventArgs args)
         {
-            NavigationService.Navigate("Main", null);
+          
+            NavigationService.Navigate("Login", null);
+
+            //eventaggr.GetEvent<Messages.LogoutMsg>().Publish("aaaaaaaaaa");
             return Task.FromResult<object>(null);
         }
 
@@ -59,11 +64,15 @@ namespace PrismSample
         protected override Task OnInitializeAsync(IActivatedEventArgs args)
         {
             // New up the singleton data repository, and pass it the state service it depends on from the base class
-         //   _dataRepository = new DataRepository(SessionStateService);
+            //   _dataRepository = new DataRepository(SessionStateService);
 
             // Register factory methods for the ViewModelLocator for each view model that takes dependencies so that you can pass in the
             // dependent services from the factory method here.
-            ViewModelLocationProvider.Register(typeof(MainPage).ToString(), () => new MainPageViewModel(null, NavigationService));
+
+            eventaggr = new EventAggregator();
+
+            ViewModelLocationProvider.Register(typeof(MainPage).ToString(), () => new MainPageViewModel(null, NavigationService, eventaggr));
+            ViewModelLocationProvider.Register(typeof(LoginPage).ToString(), () => new LoginPageViewModel(NavigationService));
 
             return base.OnInitializeAsync(args);
         }
