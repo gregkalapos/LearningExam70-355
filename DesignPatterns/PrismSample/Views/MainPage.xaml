@@ -17,5 +17,8 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <TextBlock Text="{Binding MainText}"/>
+        <Button Command="{Binding DownloadBtnTouched}" x:Name="button" Content="Download" HorizontalAlignment="Left" Margin="488,273,0,0" VerticalAlignment="Top"/>
+
+
     </Grid>
 </Page>
