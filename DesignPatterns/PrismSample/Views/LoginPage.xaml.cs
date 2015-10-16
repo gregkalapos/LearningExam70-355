@@ -35,59 +35,6 @@ namespace PrismSample.Views
             //   else
             // HideStoryboard.Begin();
         }
-
-        private void button1_Click(object sender, RoutedEventArgs e)
-        {
-            ulong nOfProme = 9999;
-            int result = 0;
-
-            var m_workItem = Windows.System.Threading.ThreadPool.RunAsync((workitem) =>
-             {
-
-                 ulong primeFound = 0;
-                 int i = 2;
-                
-                 while (primeFound < nOfProme-1)
-                 {
-                     bool prime = true;
-
-                     i++;
-
-                     for (int j = 2; j < i; ++j)
-                     {
-                         if (i % j == 0)
-                         {
-                             prime = false;
-                             break;
-                         }
-                     }
-
-                     if (prime)
-                     {
-                         primeFound++;
-                     
-                         Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.High,
-                         new DispatchedHandler(() =>
-                         {
-                             PrimeCalculationTextblock.Text = "Primes found: " + primeFound;
-                         }));
-
-                         result = i;
-                     }
-                 }
-
-                
-             });
-
-            m_workItem.Completed = new AsyncActionCompletedHandler((workItem, status) =>
-            {
-                Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.High,
-                        new DispatchedHandler(() =>
-                        {
-                            PrimeCalculationTextblock.Text = "The value is: " + result;
-                        }));
-
-            });
-        }
+        
     }
 }
