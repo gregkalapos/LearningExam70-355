@@ -8,6 +8,7 @@ using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Background;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -76,8 +77,8 @@ namespace BackgroundTaskConsumer
                 rootFrame.Navigate(typeof(MainPage), e.Arguments);
             }
 
-            RegisterBackgroundTask();
 
+            RegisterBackgroundTask();
             // Ensure the current window is active
             Window.Current.Activate();
         }
@@ -86,33 +87,55 @@ namespace BackgroundTaskConsumer
         {
             bool isRegistered = false;
 
+            var backgroundTaskName = "MySecondTestBgTask13";
+
             foreach (var bgTask in BackgroundTaskRegistration.AllTasks)
             {
-                
 
-                if(bgTask.Value.Name == "TestBackgroundTask2")
+                if (bgTask.Value.Name == backgroundTaskName)
                 {
                     isRegistered = true;
                 }
             }
 
 
-            if(!isRegistered)
+            if (!isRegistered)
             {
                 var builder = new BackgroundTaskBuilder();
-                builder.Name = "TestBackgroundTask2";
-                builder.TaskEntryPoint = "TestBackgroundTask.TestBackgroundTask";
-                builder.SetTrigger(new SystemTrigger(SystemTriggerType.InternetAvailable, false));
+                builder.Name = backgroundTaskName;
+                builder.TaskEntryPoint = "SecondBackgroundTask.MySecondTestBgTask";
+                builder.SetTrigger(new SystemTrigger(SystemTriggerType.InternetAvailable, true));
+
+                //builder.SetTrigger(new TimeTrigger(15, false));
 
                 BackgroundTaskRegistration bgregistration = builder.Register();
-                bgregistration.Completed += Bgregistration_Completed;
+                bgregistration.Progress += Bgregistration_Progress;
+                bgregistration.Completed += Bgregistration_Completed1; ;
+
             }
         }
 
-        private async void Bgregistration_Completed(BackgroundTaskRegistration sender, BackgroundTaskCompletedEventArgs args)
+        private void Bgregistration_Progress(BackgroundTaskRegistration sender, BackgroundTaskProgressEventArgs args)
         {
-            var dialog = new Windows.UI.Popups.MessageDialog("BgTaskFinished");
-            await dialog.ShowAsync();
+            //args.Progress 
+            Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+            {
+                System.Diagnostics.Debug.WriteLine("Progress: " + args.Progress);
+            });
+        }
+
+        private void Bgregistration_Completed1(BackgroundTaskRegistration sender, BackgroundTaskCompletedEventArgs args)
+        {
+
+            Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () => {
+                var rndNumber = Windows.Storage.ApplicationData.Current.LocalSettings.Values["rndNumber"];
+
+                var msgDialog = new Windows.UI.Popups.MessageDialog("Rundom number from the background task: " + rndNumber.ToString());
+                await msgDialog.ShowAsync();
+            });
+
+
+            // int a = 3;
         }
 
         /// <summary>
