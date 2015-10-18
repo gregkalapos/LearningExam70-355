@@ -37,9 +37,5 @@ namespace BackgroundTaskConsumer
         {
                await BackgroundExecutionManager.RequestAccessAsync();
         }
-
-
-      
-
     }
 }
