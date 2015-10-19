@@ -45,6 +45,7 @@ namespace ShareContentSampleReciever
 
                 eventArgs.ProtocolForResultsOperation.ReportCompleted(result);
             }
+
         }
 
         /// <summary>
@@ -97,7 +98,16 @@ namespace ShareContentSampleReciever
 
         protected async override void OnShareTargetActivated(ShareTargetActivatedEventArgs args)
         {
-            var txt = await args.ShareOperation.Data.GetTextAsync();
+            string txt = "";
+
+            try
+            {
+                txt = await args.ShareOperation.Data.GetTextAsync();
+            }
+            catch
+            {
+                
+            }
             
             var root = new Frame();
             root.Navigate(typeof(ShareActivatedMain), txt);

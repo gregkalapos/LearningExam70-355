@@ -31,7 +31,10 @@ namespace ShareContentSampleReciever
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            textBlock.Text = "Share activated text" + e.Parameter;
+            if (e.Parameter != null && (e.Parameter as string) != string.Empty)
+                textBlock.Text = "Share activated text" + e.Parameter;
+            else
+                textBlock.Text = "Text parameter connot be retrieved, something else was shared";
         }
     }
 }

@@ -21,16 +21,23 @@
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>
       <Extensions>
-        <uap:Extension Category="windows.protocol">
-          <uap:Protocol Name="mytestprotocol" />
+        <uap:Extension Category="windows.fileTypeAssociation">
+          <uap:FileTypeAssociation Name="ddd">
+            <uap:SupportedFileTypes>
+              <uap:FileType>.ddd</uap:FileType>
+            </uap:SupportedFileTypes>
+          </uap:FileTypeAssociation>
         </uap:Extension>
         <uap:Extension Category="windows.shareTarget">
           <uap:ShareTarget>
             <uap:SupportedFileTypes>
-              <uap:FileType>.docx</uap:FileType>
+              <uap:FileType>.sharetest</uap:FileType>
             </uap:SupportedFileTypes>
             <uap:DataFormat>Text</uap:DataFormat>
           </uap:ShareTarget>
+        </uap:Extension>
+        <uap:Extension Category="windows.protocol">
+          <uap:Protocol Name="mytestprotocol" />
         </uap:Extension>
       </Extensions>
     </Application>
