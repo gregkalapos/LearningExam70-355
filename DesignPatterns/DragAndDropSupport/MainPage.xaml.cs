@@ -58,6 +58,9 @@ namespace DragAndDropSupport
 
             var file = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFileAsync(@"Assets\Alcatraz.JPG");
 
+            //To get a folder from the Assets folder...
+            //var localizationDirectory = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFolderAsync(@"Assets\Localization");
+
             args.Data.SetStorageItems(new List<IStorageItem> { file });
         }
 
