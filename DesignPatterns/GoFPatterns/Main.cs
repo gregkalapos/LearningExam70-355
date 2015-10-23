@@ -11,6 +11,7 @@ using GoFPatterns.Creational.Prototype;
 using GoFPatterns.Creational.Singleton;
 
 using GoFPatterns.Structural.Adapter;
+using GoFPatterns.Structural.Bridge;
 
 namespace GoFPatterns
 {
@@ -57,12 +58,21 @@ namespace GoFPatterns
             Singleton.Instance.IntProperty = 33;
             Console.WriteLine("Instance intvalue: " + instance.IntProperty);
 
-            //Singleton 
+            //Adapter 
             Console.WriteLine();
             Console.WriteLine("Adapter pattern");
             AudioPlayer ap = new AudioPlayer();
             ap.Play("mp3", "aaa");
             ap.Play("mp4", "bb");
+            
+            //Bridge 
+            Console.WriteLine();
+            Console.WriteLine("Bridge pattern");
+
+            IAbstraction abstraction = new RefinedAbstraction();
+            abstraction.Operation();
+            abstraction.Implementor = new ConcreateImplementorB();
+            abstraction.Operation();
         }
     }
 }

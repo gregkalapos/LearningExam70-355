@@ -32,6 +32,7 @@ namespace ShareContractSample
             this.InitializeComponent();
 
             DataTransferManager.GetForCurrentView().DataRequested += MainPage_DataRequested;
+            
         }
 
         private async void MainPage_DataRequested(DataTransferManager sender, DataRequestedEventArgs args)
@@ -40,7 +41,7 @@ namespace ShareContractSample
             {
 
                 args.Request.Data.SetText("The teeext");
-
+                
                 args.Request.Data.Properties.Title = "My new title";
                 args.Request.Data.Properties.Description = "description";
             }

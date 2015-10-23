@@ -69,6 +69,11 @@
     <Compile Include="Structural\Adapter\IAdvancedAudioPlayer.cs" />
     <Compile Include="Structural\Adapter\IMediaPlayer.cs" />
     <Compile Include="Structural\Adapter\MediaAdapter.cs" />
+    <Compile Include="Structural\Bridge\ConcreateImplementorA.cs" />
+    <Compile Include="Structural\Bridge\ConcreateImplementorB.cs" />
+    <Compile Include="Structural\Bridge\IAbstraction.cs" />
+    <Compile Include="Structural\Bridge\IImplementor.cs" />
+    <Compile Include="Structural\Bridge\RefinedAbstraction.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
