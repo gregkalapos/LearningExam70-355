@@ -9,13 +9,23 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <maps:MapControl Width="400"
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+
+
+        <StackPanel>
+            <Button Content="Set To current location" Click="Button_Click" />
+            <Button Content="Streetside view" Margin="0,10,0,0" Click="Button_Click_1"/>
+        </StackPanel>
+
+        <maps:MapControl  Grid.Column="1"
              x:Name="MapControl1" 
             MapServiceToken="whSZ4ApBI46BjjjUeHM2~1yr85LgWFJd3eOHnPrL0TA~AuXDFor-Sf5SXTbw1-is7vVZqdwq-d8_MumMbQSzc0uGLfMBF-jkFf5oprDzI30e"
              ZoomInteractionMode="GestureAndControl"
        TiltInteractionMode="GestureAndControl"  
             />
-        
-        <Button Content="Set To current location" Click="Button_Click" />
     </Grid>
 </Page>

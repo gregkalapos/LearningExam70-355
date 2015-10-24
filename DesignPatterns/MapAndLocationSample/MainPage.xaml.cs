@@ -9,6 +9,7 @@ using Windows.Foundation.Collections;
 using Windows.Services.Maps;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Maps;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
@@ -38,7 +39,7 @@ namespace MapAndLocationSample
             MapControl1.Center = city;
             MapControl1.ZoomLevel = 12;
 
-            MapControl1.Style = Windows.UI.Xaml.Controls.Maps.MapStyle.Aerial3D;
+           // MapControl1.Style = Windows.UI.Xaml.Controls.Maps.MapStyle.Aerial3D;
         }
 
         private async void Button_Click(object sender, RoutedEventArgs e)
@@ -62,6 +63,21 @@ namespace MapAndLocationSample
                     break;
             }
 
+        }
+
+        private async void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            if(MapControl1.IsStreetsideSupported)
+            {
+
+                StreetsidePanorama ssp = await StreetsidePanorama.FindNearbyAsync(new Geopoint(new BasicGeoposition { Latitude = 47.604, Longitude = -122.329 }));
+
+                if(ssp != null)
+                {
+                    MapControl1.CustomExperience = new StreetsideExperience(ssp);
+                }
+
+            }
         }
     }
 }
