@@ -8,7 +8,7 @@
     xmlns:maps="using:Windows.UI.Xaml.Controls.Maps"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid  Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="*"/>
@@ -19,6 +19,9 @@
         <StackPanel>
             <Button Content="Set To current location" Click="Button_Click" />
             <Button Content="Streetside view" Margin="0,10,0,0" Click="Button_Click_1"/>
+            <Button Content="3D Aerial view" Margin="0,10,0,0" Click="Button_Click_2" />
+            <Button Content="Add MapIcon" Margin="0,10,0,0" Click="Button_Click_3" />
+            <Button Content="Routing" Margin="0,10,0,0" Click="Button_Click_4"  />
         </StackPanel>
 
         <maps:MapControl  Grid.Column="1"
@@ -26,6 +29,8 @@
             MapServiceToken="whSZ4ApBI46BjjjUeHM2~1yr85LgWFJd3eOHnPrL0TA~AuXDFor-Sf5SXTbw1-is7vVZqdwq-d8_MumMbQSzc0uGLfMBF-jkFf5oprDzI30e"
              ZoomInteractionMode="GestureAndControl"
        TiltInteractionMode="GestureAndControl"  
-            />
+            >
+           
+        </maps:MapControl>
     </Grid>
 </Page>
