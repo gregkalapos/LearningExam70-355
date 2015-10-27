@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapAndLocationSample", "Map
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TilesAndNotificationSample", "TilesAndNotificationSample\TilesAndNotificationSample.csproj", "{217A6ADE-3706-454B-86DA-9D7939E0A45B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeriodicUpdateService", "PeriodicUpdateService\PeriodicUpdateService.csproj", "{303C0832-4390-446E-9EEE-50BFF07C7683}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -315,6 +317,22 @@ Global
 		{217A6ADE-3706-454B-86DA-9D7939E0A45B}.Release|x86.ActiveCfg = Release|x86
 		{217A6ADE-3706-454B-86DA-9D7939E0A45B}.Release|x86.Build.0 = Release|x86
 		{217A6ADE-3706-454B-86DA-9D7939E0A45B}.Release|x86.Deploy.0 = Release|x86
+		{303C0832-4390-446E-9EEE-50BFF07C7683}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{303C0832-4390-446E-9EEE-50BFF07C7683}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{303C0832-4390-446E-9EEE-50BFF07C7683}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{303C0832-4390-446E-9EEE-50BFF07C7683}.Debug|ARM.Build.0 = Debug|Any CPU
+		{303C0832-4390-446E-9EEE-50BFF07C7683}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{303C0832-4390-446E-9EEE-50BFF07C7683}.Debug|x64.Build.0 = Debug|Any CPU
+		{303C0832-4390-446E-9EEE-50BFF07C7683}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{303C0832-4390-446E-9EEE-50BFF07C7683}.Debug|x86.Build.0 = Debug|Any CPU
+		{303C0832-4390-446E-9EEE-50BFF07C7683}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{303C0832-4390-446E-9EEE-50BFF07C7683}.Release|Any CPU.Build.0 = Release|Any CPU
+		{303C0832-4390-446E-9EEE-50BFF07C7683}.Release|ARM.ActiveCfg = Release|Any CPU
+		{303C0832-4390-446E-9EEE-50BFF07C7683}.Release|ARM.Build.0 = Release|Any CPU
+		{303C0832-4390-446E-9EEE-50BFF07C7683}.Release|x64.ActiveCfg = Release|Any CPU
+		{303C0832-4390-446E-9EEE-50BFF07C7683}.Release|x64.Build.0 = Release|Any CPU
+		{303C0832-4390-446E-9EEE-50BFF07C7683}.Release|x86.ActiveCfg = Release|Any CPU
+		{303C0832-4390-446E-9EEE-50BFF07C7683}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
