@@ -187,5 +187,10 @@ namespace TilesAndNotificationSample
             await secTile.RequestCreateAsync();
 
         }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            Windows.UI.Notifications.TileUpdateManager.CreateTileUpdaterForApplication().StartPeriodicUpdate(new Uri("http://localhost:54353/api/Default/NewTile"), Windows.UI.Notifications.PeriodicUpdateRecurrence.HalfHour);
+        }
     }
 }

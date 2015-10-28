@@ -12,8 +12,10 @@ namespace PeriodicUpdateService.Controllers
     public class DefaultController : ApiController
     {       
         public HttpResponseMessage GetNewTile()
-        {            
-            var response = Request.CreateResponse(HttpStatusCode.OK, Generator.Generate().GetContent());
+        {
+
+           // Content = new StringContent(XML, Encoding.UTF8, "application/xml")
+            var response = Request.CreateResponse(HttpStatusCode.OK, Generator.Generate().GetContent(), "application/xml");
        //     response.Headers.Add("X-WNS-Expires", tilesSubtitle.AddMinutes(15).ToString("r"));
        //     response.Headers.Add("X-WNS-Tag", position.ToString());
 
@@ -38,7 +40,7 @@ namespace PeriodicUpdateService.Controllers
                             {
                                 Children =
                 {
-                    new TileText() { Text = "Small" + rnd.Next(30) }
+                    new TileText() { Text = "PeriodicSmall" + rnd.Next(30) }
 
                 }
 
@@ -51,7 +53,7 @@ namespace PeriodicUpdateService.Controllers
                             {
                                 Children =
                 {
-                    new TileText() { Text = "Medium" + rnd.Next(30) }
+                    new TileText() { Text = "PeriodicMedium" + rnd.Next(30) }
                 }
                             }
                         },
@@ -62,7 +64,7 @@ namespace PeriodicUpdateService.Controllers
                             {
                                 Children =
                 {
-                    new TileText() { Text = "Wide" + rnd.Next(30) }
+                    new TileText() { Text = "PeriodicWide" + rnd.Next(30) }
                 }
                             }
                         },
@@ -73,7 +75,7 @@ namespace PeriodicUpdateService.Controllers
                             {
                                 Children =
                 {
-                    new TileText() { Text = "Large" + rnd.Next(30) }
+                    new TileText() { Text = "PeriodicLarge" + rnd.Next(30) }
                 }
                             }
                         }
