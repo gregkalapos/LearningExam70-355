@@ -190,7 +190,11 @@ namespace TilesAndNotificationSample
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            Windows.UI.Notifications.TileUpdateManager.CreateTileUpdaterForApplication().StartPeriodicUpdate(new Uri("http://localhost:54353/api/Default/NewTile"), Windows.UI.Notifications.PeriodicUpdateRecurrence.HalfHour);
+            var update = Windows.UI.Notifications.TileUpdateManager.CreateTileUpdaterForApplication();
+         
+
+
+            update.StartPeriodicUpdateBatch(new List<Uri> { new Uri("http://localhost:54353/api/Default/NewTile") }, Windows.UI.Notifications.PeriodicUpdateRecurrence.HalfHour);
         }
     }
 }
