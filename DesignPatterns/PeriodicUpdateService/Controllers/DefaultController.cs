@@ -4,20 +4,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Web.Http;
 using System.Xml.Linq;
 
 namespace PeriodicUpdateService.Controllers
 {
     public class DefaultController : ApiController
-    {       
+    {
         public HttpResponseMessage GetNewTile()
         {
-
-           // Content = new StringContent(XML, Encoding.UTF8, "application/xml")
-            var response = Request.CreateResponse(HttpStatusCode.OK, Generator.Generate().GetContent(), "application/xml");
-       //     response.Headers.Add("X-WNS-Expires", tilesSubtitle.AddMinutes(15).ToString("r"));
-       //     response.Headers.Add("X-WNS-Tag", position.ToString());
+            var response = new HttpResponseMessage()
+            {
+                Content = new StringContent(Generator.Generate().GetContent(), Encoding.UTF8, "application/xml")
+            };
 
             return response;
         }
