@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -22,8 +23,17 @@ namespace CalendarAndContactdSample
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private ObservableCollection<String> contacts;
+        public ObservableCollection<String> Contacts
+        {
+            get { return contacts; }
+            set { contacts = value; }
+        }
+
+
         public MainPage()
         {
+            Contacts = new ObservableCollection<string>();
             this.InitializeComponent();
         }
 
@@ -52,6 +62,27 @@ namespace CalendarAndContactdSample
         private Rect GetElementRect(FrameworkElement frameworkElement)
         {
             return frameworkElement.RenderTransform.TransformBounds(new Rect(0, 0, frameworkElement.Width, frameworkElement.Height));        
+        }
+
+        private async void button2_Click(object sender, RoutedEventArgs e)
+        {
+            var store = await Windows.ApplicationModel.Contacts.ContactManager.RequestStoreAsync(Windows.ApplicationModel.Contacts.ContactStoreAccessType.AllContactsReadOnly);
+
+            if(store != null )
+            {
+                var contactReader =  store.GetContactReader();
+                var contactBatch = await contactReader.ReadBatchAsync();
+
+
+                if(contactBatch.Contacts.Count > 0 && contactBatch.Status == Windows.ApplicationModel.Contacts.ContactBatchStatus.Success)
+                {
+                    foreach (var item in contactBatch.Contacts)
+                    {
+                        Contacts.Add(item.Name);
+                    }
+                }
+                
+            }
         }
     }
 }

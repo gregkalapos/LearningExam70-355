@@ -5,11 +5,20 @@
     xmlns:local="using:CalendarAndContactdSample"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d" 
+    DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Button x:Name="button" Content="Select Contact" HorizontalAlignment="Left" Margin="304,82,0,0" VerticalAlignment="Top" Click="button_Click"/>
         <Button x:Name="button1" Content="Add Appointment" HorizontalAlignment="Left" Margin="435,171,0,0" VerticalAlignment="Top" Click="button1_Click"/>
+        <Button x:Name="button2" Content="Load Contacts" HorizontalAlignment="Left" Margin="419,285,0,0" VerticalAlignment="Top" Click="button2_Click"/>
 
+
+        <ListView Width="200"  HorizontalAlignment="Left"
+                  ItemsSource="{Binding Contacts, Mode=TwoWay}">
+            
+            
+        </ListView>
+        
     </Grid>
 </Page>
