@@ -18,7 +18,7 @@ namespace WebApiServerSample.Controllers
             {
                 retVal.CompanyName = "Apple";
             }
-            if(id == 2)//  if(symbol.ToLower() == "msft")
+            else if(id == 2)//  if(symbol.ToLower() == "msft")
             {
                 retVal.CompanyName = "Microsoft";
             }
@@ -37,8 +37,18 @@ namespace WebApiServerSample.Controllers
             return retVal;
         }
 
+        public void PostOrder(Order Order)
+        {
+
+        }
+
     }
 
+    public class Order
+    {
+        public int StockId { get; set; }
+        public int Amount { get; set; }
+    }
 
     public class Tick
     {

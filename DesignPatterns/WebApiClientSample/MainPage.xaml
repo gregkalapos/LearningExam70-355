@@ -5,10 +5,21 @@
     xmlns:local="using:WebApiClientSample"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d" DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button x:Name="button" Content="Get StockInfo" HorizontalAlignment="Left" Margin="10,0,0,318" VerticalAlignment="Bottom" Height="32" Click="button_Click"/>
+        <Button x:Name="button" Content="Get StockInfo" HorizontalAlignment="Left" Margin="71,0,0,318" VerticalAlignment="Bottom" Height="32" Click="button_Click"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="116,81,0,0" TextWrapping="Wrap" Text="{Binding EnteredCompanyName, Mode=TwoWay}" VerticalAlignment="Top"/>
+        <TextBlock Text="CompanyId" x:Name="textBlock" HorizontalAlignment="Left" Margin="10,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="241,16,0,0" TextWrapping="Wrap" Text="Result:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock1_Copy" HorizontalAlignment="Left" Margin="241,56,0,0" TextWrapping="Wrap" Text="Name:" VerticalAlignment="Top" />
+        <TextBlock x:Name="textBlock1_Copy1" HorizontalAlignment="Left" Margin="241,81,0,0" TextWrapping="Wrap" Text="Price:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock1_Copy2" HorizontalAlignment="Left" Margin="241,123,0,0" TextWrapping="Wrap" Text="Date:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock1_Copy3" HorizontalAlignment="Left" Margin="308,56,0,0" TextWrapping="Wrap" Text="{Binding CompanyName, Mode=TwoWay}" VerticalAlignment="Top" Width="78"/>
+        <TextBlock x:Name="textBlock1_Copy4" HorizontalAlignment="Left" Margin="308,85,0,0" TextWrapping="Wrap" Text="{Binding Price, Mode=TwoWay}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock1_Copy5" HorizontalAlignment="Left" Margin="308,123,0,0" TextWrapping="Wrap" Text="{Binding Time, Mode=TwoWay}" VerticalAlignment="Top"/>
+        <Button x:Name="button1" Content="Buy Stock" HorizontalAlignment="Left" Margin="21,178,0,0" VerticalAlignment="Top" Click="button1_Click"/>
+
 
     </Grid>
 </Page>
