@@ -119,6 +119,7 @@ namespace WebApiClientSample
                 jo["Amount"] = JsonValue.CreateNumberValue(23);
 
                 var content = new HttpStringContent(jo.Stringify());
+                
                 content.Headers.ContentType.MediaType = "application/json"; 
                 var resp = await httpClient.PostAsync(new Uri("http://localhost:50007/api/Stocks"), content);              
             }

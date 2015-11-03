@@ -1,0 +1,9 @@
+{
+  "supports": {},
+  "dependencies": {
+    "Microsoft.Data.Services.Client": "5.7.0-rc"
+  },
+  "frameworks": {
+    ".NETCore,Version=v4.5.1": {}
+  }
+}

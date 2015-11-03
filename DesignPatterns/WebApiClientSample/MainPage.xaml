@@ -20,6 +20,7 @@
         <TextBlock x:Name="textBlock1_Copy5" HorizontalAlignment="Left" Margin="308,123,0,0" TextWrapping="Wrap" Text="{Binding Time, Mode=TwoWay}" VerticalAlignment="Top"/>
         <Button x:Name="button1" Content="Buy Stock" HorizontalAlignment="Left" Margin="21,178,0,0" VerticalAlignment="Top" Click="button1_Click"/>
 
+       
 
     </Grid>
 </Page>

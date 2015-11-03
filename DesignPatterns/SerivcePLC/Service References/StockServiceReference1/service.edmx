@@ -1,0 +1,22 @@
+﻿<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <edmx:DataServices m:DataServiceVersion="3.0" m:MaxDataServiceVersion="3.0" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata">
+    <Schema Namespace="WebApiServerSample.Models" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <EntityType Name="StockDeal">
+        <Key>
+          <PropertyRef Name="Symbole" />
+          <PropertyRef Name="Date" />
+        </Key>
+        <Property Name="Amount" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Symbole" Type="Edm.String" Nullable="false" />
+        <Property Name="Value" Type="Edm.Double" Nullable="false" />
+        <Property Name="Date" Type="Edm.DateTime" Nullable="false" />
+        <Property Name="State" Type="Edm.String" />
+      </EntityType>
+    </Schema>
+    <Schema Namespace="Default" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <EntityContainer Name="Container" m:IsDefaultEntityContainer="true">
+        <EntitySet Name="StockDeals" EntityType="WebApiServerSample.Models.StockDeal" />
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
